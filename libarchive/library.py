@@ -6,7 +6,7 @@ import ctypes.util
 
 _LOGGER = logging.getLogger(__name__)
 
-_LIBRARY_NAME = ['libarchive', 'archive']
+_LIBRARY_NAMES = ['libarchive', 'archive']
 _LIBRARY_FILENAME = 'libarchive.so'
 
 def find_and_load_library():
@@ -29,7 +29,7 @@ def find_and_load_library():
     # Search for our library using whatever search-path ctypes uses (not the same 
     # as `LD_LIBRARY_PATH`).
 
-    for library_name in _LIBRARY_NAME:
+    for library_name in _LIBRARY_NAMES:
         filepath = ctypes.util.find_library(library_name)
         if filepath is not None:
             search_filepaths.append(filepath)
